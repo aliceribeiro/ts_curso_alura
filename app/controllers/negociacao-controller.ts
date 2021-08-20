@@ -18,15 +18,14 @@ export class NegociacaoController {
     this.negociacoesView.update(this.negociacoes); 
   }
 
-  adiciona(): void {
+  public adiciona(): void {
     const negociacao = this.criaNegociacao();
     this.negociacoes.adiciona(negociacao);
-    this.negociacoesView.update(this.negociacoes);
-    this.mensagemView.update('Negociação adicionada com sucesso!');
     this.limparFormulario();
+    this.atualizaView();
   }
 
-  criaNegociacao(): Negociacao {
+  private criaNegociacao(): Negociacao {
     // Convertendo os dados de entrada para o tipo correto
     // OBS.: a string passada pelo construtor deve ter o ano, mês e dia separados por vírgula
     const exp = /-/g;
@@ -37,11 +36,16 @@ export class NegociacaoController {
     return new Negociacao(date, quantidade, valor);
   }
 
-  limparFormulario(): void {
+  private limparFormulario(): void {
     // Como as propriedades da classe foram tipadas como HTMLInputElement, ele tem todas as funções do DOM como o focus();
     this.inputData.value = '';
     this.inputQuantidade.value = '';
     this.inputValor.value = '';
     this.inputData.focus();
+  }
+
+  private atualizaView(): void {
+    this.negociacoesView.update(this.negociacoes);
+    this.mensagemView.update('Negociação adicionada com sucesso!');
   }
 }
