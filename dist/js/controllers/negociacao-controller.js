@@ -27,7 +27,6 @@ export class NegociacaoController {
         return data.getDay() > DiasDaSemana.DOMINGO && data.getDay() < DiasDaSemana.SABADO;
     }
     limparFormulario() {
-        // Como as propriedades da classe foram tipadas como HTMLInputElement, ele tem todas as funções do DOM como o focus();
         this.inputData.value = '';
         this.inputQuantidade.value = '';
         this.inputValor.value = '';
