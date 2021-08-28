@@ -11,6 +11,7 @@ export function escapar(
      if (typeof retorno === 'string') {
        retorno = retorno.replace(/<script>[\s\S]*?<\/script>/, '');
      }
+     return retorno;
   }
 
   return descriptor;
