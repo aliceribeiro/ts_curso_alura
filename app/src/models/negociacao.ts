@@ -11,7 +11,7 @@ export class Negociacao {
     return data;
   }
 
-  get valume(): number {
+  get volume(): number {
     return this.quantidade * this.valor;
   }
 
